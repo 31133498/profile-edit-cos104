@@ -1,22 +1,35 @@
 export const validateForm = (formData) => {
+    // Check if email contains @ symbol
     if (!formData.email.includes("@")) {
         return {
             success: false,
-            message: "Email does not include '@' sign"
+            message: "Email must contain '@' symbol"
         };
-    };
+    }
+    
+    // Check if email contains . symbol
     if (!formData.email.includes(".")) {
         return {
             success: false,
-            message: "Email does not include '.' sign before the domain"
+            message: "Email must contain '.' symbol before the domain"
         }
     }
-    if (!formData.bio.length > 200) {
+    
+    // Check if bio exceeds 200 characters
+    if (formData.bio.length > 200) {
         return {
             success: false,
-            message: "Bio should not be more than 200 words."
+            message: "Bio should not be more than 200 characters."
+        }
+    }
+    
+    // Check if required fields are not empty
+    if (!formData.fname.trim() || !formData.lname.trim() || !formData.email.trim() || !formData.bio.trim()) {
+        return {
+            success: false,
+            message: "All fields are required"
         }
     }
 
-    return { success: true}
+    return { success: true }
 }

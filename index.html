@@ -4,11 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>COS 102 ASSIGNMENT</title>
+    <title>Profile - COS 104 ASSIGNMENT</title>
   </head>
   <body>
     <main>
-      <a href="./edit-profile/index.html">Edit Profile</a>
+      <div class="profile-container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+          <div class="info-item">
+            <label>First Name:</label>
+            <span id="profile-fname">Loading...</span>
+          </div>
+          <div class="info-item">
+            <label>Last Name:</label>
+            <span id="profile-lname">Loading...</span>
+          </div>
+          <div class="info-item">
+            <label>Email:</label>
+            <span id="profile-email">Loading...</span>
+          </div>
+          <div class="info-item">
+            <label>Bio:</label>
+            <p id="profile-bio">Loading...</p>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <a href="./edit-profile/index.html" class="btn btn-primary">Edit Profile</a>
+        </div>
+      </div>
     </main>
+    <script type="module" src="profile.js"></script>
   </body>
 </html>

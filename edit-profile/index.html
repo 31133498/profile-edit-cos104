@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile page | COS 102 ASSIGNGMENT</title>
+    <title>Edit Profile | COS 104 ASSIGNMENT</title>
     <link rel="stylesheet" href="../style.css" />
   </head>
   <body>
     <main>
+      <div class="form-header">
+        <h1>Edit Profile</h1>
+        <a href="../index.html" class="btn btn-secondary">← Back to Profile</a>
+      </div>
       <form id="profile-form">
         <div>
           <label for="fname">First Name</label>
@@ -22,10 +26,13 @@
           <input type="email" name="email" id="email" placeholder="name@yourmail.com" required/>
         </div>
         <div>
-          <label for="bio">Bio(e.g I love eating Pizza)</label>
+          <label for="bio">Bio (max 200 characters)</label>
           <textarea name="bio" id="bio" rows="10" maxlength="200" placeholder="I love Pizza" required></textarea>
+          <div class="char-count">
+            <span id="char-count">0</span>/200 characters
+          </div>
         </div>
-        <button id="submit" type="submit">Submit</button>
+        <button id="submit" type="submit">Save Changes</button>
       </form>
       <div id="alert"></div>
     </main>
