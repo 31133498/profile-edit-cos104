@@ -1,5 +1,4 @@
 export const validateForm = (formData) => {
-    // Check if email contains @ symbol
     if (!formData.email.includes("@")) {
         return {
             success: false,
@@ -7,7 +6,6 @@ export const validateForm = (formData) => {
         };
     }
     
-    // Check if email contains . symbol
     if (!formData.email.includes(".")) {
         return {
             success: false,
@@ -15,7 +13,6 @@ export const validateForm = (formData) => {
         }
     }
     
-    // Check if bio exceeds 200 characters
     if (formData.bio.length > 200) {
         return {
             success: false,
@@ -23,7 +20,6 @@ export const validateForm = (formData) => {
         }
     }
     
-    // Check if required fields are not empty
     if (!formData.fname.trim() || !formData.lname.trim() || !formData.email.trim() || !formData.bio.trim()) {
         return {
             success: false,

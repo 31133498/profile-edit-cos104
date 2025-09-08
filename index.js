@@ -1,7 +1,6 @@
 import { validateForm } from "./modules/formValidator.js";
 import { getDetails, saveDetails } from "./modules/profileManager.js";
 
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     const profileDetails = getDetails();
 
@@ -14,25 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const submit = document.getElementById("submit");
     const charCount = document.getElementById("char-count");
 
-    // Pre-fill form with existing data
     fname.value = profileDetails.fname;
     lname.value = profileDetails.lname;
     email.value = profileDetails.email;
     bio.value = profileDetails.bio;
     
-    // Update character count on page load
     if (charCount) {
         charCount.textContent = bio.value.length;
     }
 
-    // Real-time character count for bio
     if (bio && charCount) {
         bio.addEventListener('input', () => {
             charCount.textContent = bio.value.length;
         });
     }
 
-    // Handle form submission
     profileForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -54,14 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
      
         saveDetails(data);
-        alert.innerHTML = "Profile updated successfully!";
+        alert.innerHTML = "Profile updated successfully! Redirecting to profile page...";
         alert.classList.remove("error");
         alert.classList.add("success");
         alert.classList.add("visible");
         
-        // Auto-hide success message after 3 seconds
         setTimeout(() => {
-            alert.classList.remove("visible");
-        }, 3000);
+            window.location.href = "../index.html";
+        }, 2000);
     });
 });
